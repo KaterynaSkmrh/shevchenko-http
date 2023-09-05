@@ -21,7 +21,9 @@ app.get('/', async (req, res, err) => {
  */
 app.post('/nominative', async (req, res, next) => {
   try {
-    const output = await shevchenko.inNominative(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inNominative(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
@@ -42,7 +44,9 @@ app.post('/gender', async (req, res, next) => {
  */
 app.post('/genitive', async (req, res, next) => {
   try {
-    const output = await shevchenko.inGenitive(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inGenitive(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
@@ -54,7 +58,9 @@ app.post('/genitive', async (req, res, next) => {
  */
 app.post('/dative', async (req, res, next) => {
   try {
-    const output = await shevchenko.inDative(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inDative(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
@@ -66,7 +72,9 @@ app.post('/dative', async (req, res, next) => {
  */
 app.post('/accusative', async (req, res, next) => {
   try {
-    const output = await shevchenko.inAccusative(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inAccusative(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
@@ -78,7 +86,9 @@ app.post('/accusative', async (req, res, next) => {
  */
 app.post('/ablative', async (req, res, next) => {
   try {
-    const output = await shevchenko.inAblative(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inAblative(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
@@ -90,7 +100,9 @@ app.post('/ablative', async (req, res, next) => {
  */
 app.post('/locative', async (req, res, next) => {
   try {
-    const output = await shevchenko.inLocative(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inLocative(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
@@ -102,7 +114,9 @@ app.post('/locative', async (req, res, next) => {
  */
 app.post('/vocative', async (req, res, next) => {
   try {
-    const output = await shevchenko.inVocative(req.body);
+    const gender = await shevchenko.detectGender(req.body);
+    const input = { ...req.body, gender };
+    const output = await shevchenko.inVocative(input);
     res.status(200).send(output);
   } catch (err) {
     next(err);
