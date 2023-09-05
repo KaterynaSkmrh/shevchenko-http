@@ -28,6 +28,15 @@ app.post('/nominative', async (req, res, next) => {
   }
 });
 
+app.post('/gender', async (req, res, next) => {
+  try {
+    const output = await shevchenko.detectGender(req.body);
+    res.status(200).send(output);
+  } catch (err) {
+    next(err);
+  }
+});
+
 /**
  * Inflects an anthroponym in genitive grammatical case.
  */
